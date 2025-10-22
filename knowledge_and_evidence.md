@@ -22,6 +22,7 @@ This document includes instructions and knowledge questions that must be complet
 ```
 
 ![Sample](screenshots/sample.png)
+
 > Note the `!`, and the use of a relative path.
 
 - You must upload the code into your GitHub repository.
@@ -53,7 +54,7 @@ Address the following tasks and questions based on the code provided in this rep
 3. Run the project locally by executing the `main.py` file
 4. Evidence this by providing screenshots of the project directory structure and the output of the `main.py` file
 
-![Local Execution (INSERT YOUR SCREENSHOT)](screenshots/CREATE_A_SCREENSHOT_OF_YOUR_local_setup.png)
+![Local Execution (INSERT YOUR SCREENSHOT)](screenshots/sample2.png)
 
 If you are running on a Raspberry Pi, you can use the following command to run the project and then screenshot the result:
 
@@ -68,36 +69,36 @@ python3 main.py
 
 1. Examine the code for the `smiley.py` file and provide  an example of a variable of each of the following types and their corresponding values (`_` should be replaced with the appropriate values):
 
-   | Type                    | name       | value          |
-   | ----------              | ---------- | -------------- |
-   | built-in primitive type | _          |  _             |
-   | built-in composite type | _          |  _             |
-   | user-defined type       | _          |  _             |
+   | Type                    | name                     | value                 |
+   | ----------              |--------------------------|-----------------------|
+   | built-in primitive type | self.sense_hat.low_light | dimmed(default: True) |
+   | built-in composite type | WHITE                    | (255, 255, 255)       |
+   | user-defined type       | self.pixels              | List of tuples.       |
 
 2. Fill in (`_`) the following table based on the code in `smiley.py`:
 
-   | Object                   | Type                    |
-   | ------------             | ----------------------- |
-   | self.pixels              | _                       |
-   | A member of self.pixels  | _                       |
-   | self                     | _                       |
+   | Object                   | Type                                   |
+   | ------------             |----------------------------------------|
+   | self.pixels              | List of tuples (user-defined)          |
+   | A member of self.pixels  | tuple (composite)                      |
+   | self                     | object (refers to instance being used) |
 
 3. Examine the code for `smiley.py`, `sad.py`, and `happy.py`. Give an example of each of the following control structures using an example from **each** of these files. Include the first line and the line range:
 
-   | Control Flow | File       | First line  | Line range  |
-   | ------------ | ---------- | ----------- | ----------- |
-   |  sequence    |  _         | _           | _           |
-   |  selection   | _          | _           | _           |
-   |  iteration   | _          | _           | _           |
+   | Control Flow | File      | First line | Line range |
+   | ------------ |-----------|------------|------------|
+   |  sequence    | happy.py  | 16         | 16-22      |
+   |  selection   | smiley.py | 28         | 28-33      |
+   |  iteration   | sad.py    | 19         | 19-31      |
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
-   | Type                    | Used? | Example |
-   | ----------------------- | ----- | --------|
-   | int                     | _     | _          |
-   | float                   | _     | _          |
-   | str                     | _     | _          |
-   | bool                    | _     | _          |
+   | Type                    | Used? | Example       |
+   | ----------------------- |-------|---------------|
+   | int                     | No    | n/a           |
+   | float                   | Yes   | delay = 0.25  |
+   | str                     | No    | n/a           |
+   | bool                    | Yes   | dimmed = True |
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
