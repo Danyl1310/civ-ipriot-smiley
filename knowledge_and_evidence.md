@@ -93,44 +93,49 @@ python3 main.py
 
 4. Though everything in Python is an object, it is sometimes said to have four "primitive" types. Examining the three files `smiley.py`, `sad.py`, and `happy.py`, identify which of the following types are used in any of these files, and give an example of each (use an example from the code, if applicable, otherwise provide an example of your own):
 
-   | Type                    | Used? | Example       |
-   | ----------------------- |-------|---------------|
-   | int                     | No    | n/a           |
-   | float                   | Yes   | delay = 0.25  |
-   | str                     | No    | n/a           |
-   | bool                    | Yes   | dimmed = True |
+   | Type                    | Used? | Example                                      |
+   | ----------------------- |-------|----------------------------------------------|
+   | int                     | Yes   | int in tuple eg 255 in WHITE = (255,255,255) |
+   | float                   | Yes   | delay = 0.25                                 |
+   | str                     | No    | n/a                                          |
+   | bool                    | Yes   | dimmed = True                                |
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
-> Your answer here
+> An example of a class variable is : WHITE = (255, 255, 255) an example of an instance variable is : self.sense_hat = SenseHat() *(within the "def __init__(self):")*. Unlike "instance variables", the value of a "class variable" is shared among all instances of the same class this is useful for variables that should remain static such as the variable: "WHITE". instance variables are defined when an instance is created and is the reason why "self.sense_hat = SenseHat()" is defined as an instance variable since the object "SenseHat" could be the built-in class object for a raspberry pie or an emulated class object it is important for it to be defined when an instance is created.   
 >
 
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
    1. What is the purpose of a constructor (in general) and this one (in particular)?
 
-   > Your answer here
+   > The purpose of the constructor for the Happy class in happy.py is to first draw the base head and then to draw the eyes and mouth for when an instance of Happy is created.
    >
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
-   > Your answer here
+   > The constructor for "Happy" first call the constructor of its parent classes with the command: "super().__init__" even though the Happy class has two parent classes but since blinkable does not have a constructor it only calls upon the class Smiley constructor which builds the faceless head the next two lines call upon the methods within the happy class which build/draw the mouth and eyes. *(self.draw_mouth(), 
+        self.draw_eyes())* after the constructor is finished the face should be fully drawn.
    >
 
 ### 2.3. Code style
 
 1. What code style is used in the code? Is it likely to be the same as the code style used in the SenseHat? Give to reasons as to why/why not:
 
-> Your answer here
+> The code style being used is more than likely "PEP8" since it is an industry standard and the conventional way of coding in Python the same style of code is very likely being used.
 >
 
 2. List three aspects of this convention you see applied in the code.
 
-> Your answer here
+> 1. All lines being limited to 79 characters.
+> 2. Four spaces per indentation.
+> 3. Lists being broken up into multiple lines.
 >
 
 3. Give two examples of organizational documentation in the code.
 
-> Your answer here
+> 1. On line 12 in smiley.py "# We have encapsulated the SenseHat object" the comment is used to label a line of code of its purpose.
+> 2. On line 37 in smiley.py "Show the smiley on the screen." is used to describe the function of a method in class Smiley.
+> 
 >
 
 ### 2.4. Identifying and understanding classes
@@ -141,14 +146,16 @@ python3 main.py
   
   Use the following table for your answers:
 
-| Class Name | Super or Sub? | Direct parent(s) |
-| ---------- | ------------- | ---------------- |
-| NotReal    | Sub           | NotRealParent    |
-|   ...      |   ...         |      ...         |
+| Class Name | Super or Sub? | Direct parent(s)  |
+|------------|---------------|-------------------|
+| Smiley     | Super         | None              |
+| Happy      | Sub           | Smiley, Blinkable |
+| Sad        | Sub           | Smiley            |
+| Blinkable  | Sub           | ABC               |
 
 2. Explain the concept of abstraction, giving an example from the project (note "implementing an ABC" is **not** in itself an example of abstraction). (Max 150 words)
 
-> Your answer here
+> In the file blinkable.py the abstract class "Blinkable" is created using the "ABS" module the abstract class Blinkable defines the abstract methods of what something that is "Blinkable" should have the only method defined is "Blink" meaning that classes that are parented to Blinkable require a blink method.
 >
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
