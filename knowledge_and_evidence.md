@@ -102,7 +102,7 @@ python3 main.py
 
 5. Examining `smiley.py`, provide an example of a class variable and an instance variable (attribute). Explain **why** one is defined as a class variable and the other as an instance variable.
 
-> An example of a class variable is : WHITE = (255, 255, 255) an example of an instance variable is : self.sense_hat = SenseHat() *(within the "def __init__(self):")*. Unlike "instance variables", the value of a "class variable" is shared among all instances of the same class this is useful for variables that should remain static such as the variable: "WHITE". instance variables are defined when an instance is created and is the reason why "self.sense_hat = SenseHat()" is defined as an instance variable since the object "SenseHat" could be the built-in class object for a raspberry pie or an emulated class object it is important for it to be defined when an instance is created.   
+> An example of a class variable is : WHITE = (255, 255, 255) an example of an instance variable is : ```self.sense_hat = SenseHat()``` (within the ```def __init__(self):```). Unlike "instance variables", the value of a "class variable" is shared among all instances of the same class this is useful for variables that should remain static such as the variable: "WHITE". instance variables are defined when an instance is created and is the reason why ```self.sense_hat = SenseHat()``` is defined as an instance variable since the object "SenseHat" could be the built-in class object for a raspberry pie or an emulated class object it is important for it to be defined when an instance is created.   
 >
 
 6. Examine `happy.py`, and identify the constructor (initializer) for the `Happy` class:
@@ -113,8 +113,8 @@ python3 main.py
 
    2. What statement(s) does it execute (consider the `super` call), and what is the result?
 
-   > The constructor for "Happy" first call the constructor of its parent classes with the command: "super().__init__" even though the Happy class has two parent classes but since blinkable does not have a constructor it only calls upon the class Smiley constructor which builds the faceless head the next two lines call upon the methods within the happy class which build/draw the mouth and eyes. *(self.draw_mouth(), 
-        self.draw_eyes())* after the constructor is finished the face should be fully drawn.
+   > The constructor for "Happy" first call the constructor of its parent classes with the command: ```super().__init__``` even though the Happy class has two parent classes but since blinkable does not have a constructor it only calls upon the class Smiley constructor which builds the faceless head the next two lines call upon the methods within the happy class which build/draw the mouth and eyes. ```self.draw_mouth()```, 
+        ```self.draw_eyes()``` after the constructor is finished the face should be fully drawn.
    >
 
 ### 2.3. Code style
@@ -160,7 +160,7 @@ python3 main.py
 
 3. What is the name of the process of deriving from base classes? What is its purpose in this project? (Max 150 words)
 
-> Your answer here
+> The process of deriving from base classes is called "Inheritance" the purpose of inheritance in this project is to save time by reusing code and to also allow for scalability. for example the class Smiley is created as the base class which builds the empty head or face of the smiley of the Smiley which is reused by the sub-Classes: "Happy" and "Sad" which build upon the base of the head from Class Smiley and add eyes and a mouth in this project another class can easily be made as a sub-Class of Smiley to create a different face.
 >
 
 ### 2.5. Compare and contrast classes
@@ -168,28 +168,28 @@ python3 main.py
 Compare and contrast the classes Happy and Sad.
 
 1. What is the key difference between the two classes?
-   > Your answer here
+   > Unlike the Sad Class the Happy Class inherits the "Blinkable" abstract class which means that the happy class is required to have a blink method that the sad class does not have, another difference is the pixel locations for drawing the mouth is different of course the happy class draws a smile and the sad class draws a frown.
    >
 2. What are the key similarities?
-   > Your answer here
+   > Both classes inherit from class smiley and also contain the methods: ```draw_mouth()``` and ```draw_eyes()```
    >
 3. What difference stands out the most to you and why?
-   > Your answer here
+   >The difference that stands our the most is class Happy having the function (method) to blink which requires for class Happy to have 10 more lines of code than smiley but also extra code for the function of blinking in the ```draw_eyes()``` method.
    >
 4. How does this difference affect the functionality of these classes
-   > Your answer here
+   > The difference allows the face drawn from class smiley to be animated from being able to blink.
    >
 
 ### 2.6. Where is the Sense(Hat) in the code?
 
 1. Which class(es) utilize the functionality of the SenseHat?
-   > Your answer here
+   > The class Smiley creates an instance of the SenseHat class object when it is initialized, and defines a method "```show```" which utilizes a functionality of SenseHat it is inherited by both class Sad and class Happy but it is only called upon by class Happy in the "```blink```" method and in ```main.py``` where an instance of Happy is created and the method "```show```" is used.
    >
 2. Which of these classes directly interact with the SenseHat functionalities?
-   > Your answer here
+   > The only class which directly interacts with SenseHat is "Class Smiley"
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > Your answer here
+   > 
    >
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
