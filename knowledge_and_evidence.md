@@ -128,7 +128,7 @@ python3 main.py
 
 > 1. All lines being limited to 79 characters.
 > 2. Four spaces per indentation.
-> 3. Lists being broken up into multiple lines.
+> 3. Lists being broken up into multiple lines. for readability
 >
 
 3. Give two examples of organizational documentation in the code.
@@ -189,7 +189,7 @@ Compare and contrast the classes Happy and Sad.
    > The only class which directly interacts with SenseHat is "Class Smiley"
    >
 3. Discuss the hiding of the SenseHAT in terms of encapsulation (100-200 Words)
-   > 
+   > The hiding of senseHat in class Smiley is an example of encapsulation where the "show" method is defined using an instance of senseHat created within the class Smiley, the purpose of the encapsulation in this example, is to only allow other classes which inherit from class Smiley to access only one of senseHat's functionalities defined in the "show" method. The encapsulation is also used to protect the other functionalities from being accessed.
    >
 
 ### 2.7. Sad Smileys Can’t Blink (Or Can They?)
@@ -200,22 +200,22 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
 
 1. Does the code's author believe that every `Smiley` should be able to blink? Explain.
 
-> Your answer here
+> The author cleary believes that not every Smiley should be able to blink since the blink method in the abstract class "Blinkable" where the classes that inherit this class are required to have a "blink" method. If the author were to want every smiley to blink the "Blinkable" abstract class would not be needed and the blink method would be defined in the super class "Smiley".
 >
 
 2. For those smileys that blink, does the author expect them to blink in the same way? Explain.
 
-> Your answer here
+> No. the author does not expect all smileys to blink the same way otherwise the "Blinkable" class would not be abstract and instead would be a super class with the blink method defined.
+> Classes that inherit from the abstract class "Blinkable" are required to have their own blink method which is unique per class.
 >
-
 3. Referring to the implementation of blink in the Happy and Sad Smiley classes, give a brief explanation of what polymorphism is.
 
-> Your answer here
+> If the Sad and Happy class were to both have their own blink methods and inherit from the "Blinkable" class this would be an example of polymorphism since calling upon the same method of different smiley Sub-classes "Happy and Sad" would result in different behaviors.
 >
 
 4. How is inheritance used in the blink method, and why is it important for polymorphism?
 
-> Your answer here
+> Sub-classes that inherit from the Blinkable class are required to have their *OWN* blink method, which is necessary for polymorphism, this means that all Sub-classes when callin the same method "Blink" will result in different behavior. without inheritance for an abstract class the blink method would not result in different behaviors.
 >
 1. **Implement Blink in Sad Class:**
 
@@ -225,6 +225,7 @@ Unlike the `Happy` smiley, the current implementation of the `Sad` smiley does n
    def blink(self, delay=0.25):
        pass  # Replace 'pass' with your implementation
    ```
+   *Done* ✔
 
 2. **Code Implementation:** Implement the code that allows the Sad smiley to blink. Use the implementation from the Happy Smiley as a reference. Ensure your new method functions similarly by controlling the blink duration through the `delay` argument.
 
